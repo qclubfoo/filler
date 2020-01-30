@@ -1,6 +1,6 @@
 #include "filler.h"
 
-list	*readAllInput(void)
+list	*read_all_input(void)
 {
 	char	*buf;
 	int		readed;
@@ -9,26 +9,22 @@ list	*readAllInput(void)
 
 	buf = (char*)malloc(sizeof(char) * (BUFF_SIZE + 1));
 	ft_nbzero(buf, BUFF_SIZE);
-	// for (int i = 0; i <= BUFF_SIZE; i++)
-	// 	buf[i] = '\0';
-	// buf[BUFF_SIZE] = '\0';
-	head = createNewList();
+	head = create_new_list();
 	readed = read(0, buf, BUFF_SIZE);
 	fillListWithData(head, readed, buf);
 	while (readed != 0)
 	{
 		if ((readed = read(0, buf, BUFF_SIZE)) != 0)
 		{
-			tmp = createNewList();
+			tmp = create_new_list();
 			fillListWithData(tmp, readed, buf);
-			appendListAtTheEnd(head, tmp);
-			ftBZero(buf);
+			append_list_at_the_end(head, tmp);
+			ft_bzero(buf);
 		}
 	}
 	if (head->len != 0)
 		return (head);
-	free (head->str);
-	free (head);
+	ft_free_element(head);
 	free (buf);
 	return (NULL);
 }

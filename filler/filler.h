@@ -6,7 +6,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-#define BUFF_SIZE 50
+#define BUFF_SIZE 150
 
 typedef struct list
 {
@@ -16,16 +16,18 @@ typedef struct list
 	struct list	*next;
 } list;
 
-list	*createNewList(void);
-void	addNewElement(const list *head);
-void	appendListAtTheEnd(const list *head, const list *new);
+list	*create_new_list(void);
+void	add_new_element(const list *head);
+void	append_list_at_the_end(const list *head, const list *new);
+void	ft_free_element(list *list_for_free);
 
 void	ftStrCpy(char *dst, char *src);
 int		ftStrLen(const char *str);
 void	ft_nbzero(char *str, int last_index);
-void	ftBZero(char *str);
+void	ft_bzero(char *str);
+int		ft_strcmp(char *where, char *what);
 
-list	*readAllInput(void);
+list	*read_all_input(void);
 void    fillListWithData(list *list, int readed, char *buf);
 int		ftNlCounter(const char *str);
 
