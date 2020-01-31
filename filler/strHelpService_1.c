@@ -1,6 +1,6 @@
 #include "filler.h"
 
-void	ftStrCpy(char *dst, char *src)
+void	ft_strcpy(char *dst, char *src)
 {
 	int i;
 
@@ -9,7 +9,7 @@ void	ftStrCpy(char *dst, char *src)
 		dst[i] = src[i];
 }
 
-int		ftStrLen(const char *str)
+int		ft_strlen(const char *str)
 {
 	int len;
 
@@ -37,7 +37,7 @@ void	ft_bzero(char *str)
 		str[i] = '\0';
 }
 
-int		ft_strcmp(char *where, char *what)
+int		ft_strstr(char *where, char *what)
 {
 	int i;
 	int	j;

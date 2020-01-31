@@ -11,13 +11,13 @@ list	*read_all_input(void)
 	ft_nbzero(buf, BUFF_SIZE);
 	head = create_new_list();
 	readed = read(0, buf, BUFF_SIZE);
-	fillListWithData(head, readed, buf);
+	fill_list_with_data(head, readed, buf);
 	while (readed != 0)
 	{
 		if ((readed = read(0, buf, BUFF_SIZE)) != 0)
 		{
 			tmp = create_new_list();
-			fillListWithData(tmp, readed, buf);
+			fill_list_with_data(tmp, readed, buf);
 			append_list_at_the_end(head, tmp);
 			ft_bzero(buf);
 		}
@@ -29,7 +29,7 @@ list	*read_all_input(void)
 	return (NULL);
 }
 
-void    fillListWithData(list *list, int readed, char *buf)
+void    fill_list_with_data(list *list, int readed, char *buf)
 {
 	int i;
 
@@ -38,11 +38,11 @@ void    fillListWithData(list *list, int readed, char *buf)
 	list->str = (char*)malloc(sizeof(char) * (readed + 1));
 	while (++i <= readed)
 		(list->str)[i] = '\0';
-	ftStrCpy(list->str, buf);
-	list->nl = ftNlCounter(list->str);
+	ft_strcpy(list->str, buf);
+	list->nl = ft_nl_counter(list->str);
 }
 
-int		ftNlCounter(const char *str)
+int		ft_nl_counter(const char *str)
 {
 	int	nl;
 	int	i;

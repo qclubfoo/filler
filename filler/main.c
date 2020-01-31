@@ -9,7 +9,7 @@ int main(void)
 	i = 1;
 	while (new != NULL)
 	{
-		if (ft_strcmp(new->str, "Plateau\0") == 0)
+		if (ft_strstr(new->str, "Plateau\0") == 0)
 		{
 			printf("find at %d chain\n", i);
 			puts(new->str);
